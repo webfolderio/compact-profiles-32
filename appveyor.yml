@@ -8,7 +8,7 @@ platform: x64
 configuration: Release
 
 environment:
-  JAVA_HOME: %APPVEYOR_BUILD_FOLDER%\jdk\jdk1.8.0_202
+  JAVA_HOME: '%APPVEYOR_BUILD_FOLDER%\jdk\jdk1.8.0_202'
   CYG_PACKAGES: make,zip,unzip
   CYG_MIRROR: http://cygwin.mirror.constant.com
   CYG_ROOT: C:/cygwin64
