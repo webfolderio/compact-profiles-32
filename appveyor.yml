@@ -38,9 +38,9 @@ build_script:
   - 7z a -r C:\projects\compact-profiles-32\java-8_202_b08-x86-compact3.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact3-image\*
   
 artifacts:
-  - path: java-8_202_b08-x32-compact1.zip
+  - path: java-8_202_b08-x86-compact1.zip
     name: Java 8 x32 windows - compact1 - 202.b08
-  - path: java-8_202_b08-x32-compact2.zip
+  - path: java-8_202_b08-x86-compact2.zip
     name: Java 8 x32 windows - compact2 - 202.b08
-  - path: java-8_202_b08-x32-compact3.zip
+  - path: java-8_202_b08-x86-compact3.zip
     name: Java 8 x32 windows - compact3 - 202.b08
