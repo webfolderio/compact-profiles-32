@@ -33,9 +33,9 @@ build_script:
   - git clone https://github.com/corretto/corretto-8.git
   - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && bash $APPVEYOR_BUILD_FOLDER/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=server --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=$APPVEYOR_BUILD_FOLDER/freetype/include --with-freetype-lib=$APPVEYOR_BUILD_FOLDER/freetype/bin --with-build-number=b08 --with-update-version=202"'
   - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && make profiles COMPRESS_JARS=true"'
-  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact1.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-client-release\images\j2re-compact1-image\*
-  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact2.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-client-release\images\j2re-compact2-image\*
-  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact3.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-client-release\images\j2re-compact3-image\*
+  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact1.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact1-image\*
+  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact2.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact2-image\*
+  - 7z a -r $APPVEYOR_BUILD_FOLDER\java-8_202_b08-x86-compact3.zip $APPVEYOR_BUILD_FOLDER\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact3-image\*
   
 artifacts:
   - path: java-8_202_b08-x32-compact1.zip
