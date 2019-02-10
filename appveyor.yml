@@ -4,16 +4,16 @@ branches:
   only:
     - master
 
-platform: x64
+platform: x86
 configuration: Release
 
 environment:
   JAVA_HOME: '%APPVEYOR_BUILD_FOLDER%\jdk\jdk1.8.0_202'
   CYG_PACKAGES: make,zip,unzip
   CYG_MIRROR: http://cygwin.mirror.constant.com
-  CYG_ROOT: C:/cygwin64
-  CYG_CACHE: C:/cygwin64/var/cache/setup
-  CYG_SETUP: C:/cygwin64/setup-x86_64.exe
+  CYG_ROOT: C:/cygwin
+  CYG_CACHE: C:/cygwin/var/cache/setup
+  CYG_SETUP: C:/cygwin/setup-x86.exe
 
 init:
     - git config --global core.autocrlf input
