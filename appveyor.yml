@@ -1,0 +1,44 @@
+image: Visual Studio 2013
+
+branches:
+  only:
+    - master
+
+platform: x64
+configuration: Release
+
+environment:
+  JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+  CYG_PACKAGES: make,zip,unzip
+  CYG_MIRROR: http://cygwin.mirror.constant.com
+  CYG_ROOT: C:/cygwin64
+  CYG_CACHE: C:/cygwin64/var/cache/setup
+  CYG_SETUP: C:/cygwin64/setup-x86_64.exe
+
+init:
+    - git config --global core.autocrlf input
+
+install:
+  - if defined CYG_ROOT (%CYG_SETUP% --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages "%CYG_PACKAGES%" --upgrade-also)
+
+build_script:
+  - curl -OL https://github.com/webfolderio/freetype-msvc/releases/download/2.8.1/freetype_2.8.1_x86_windows_dll.zip
+  - 7z x freetype_2.8.1_x86_windows_dll.zip -ofreetype
+  - copy /Y freetype\lib\freetype.lib freetype\bin\freetype.lib
+  - curl -OL https://github.com/webfolderio/freetype-msvc/releases/download/2.8.1/freetype_2.8.1_x86_windows_static_crt_dll.zip
+  - 7z x freetype_2.8.1_x86_windows_static_crt_dll.zip -ofreetype-static-crt
+  - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
+  - git clone https://github.com/corretto/corretto-8.git
+  - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=client --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=/cygdrive/c/projects/compact-profiles/freetype/include --with-freetype-lib=/cygdrive/c/projects/compact-profiles/freetype/bin --with-build-number=b08 --with-update-version=202'
+  - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles COMPRESS_JARS=true'
+  - 7z a -r C:\projects\compact-profiles\java-8_202_b08-x86-compact1.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact1-image\*
+  - 7z a -r C:\projects\compact-profiles\java-8_202_b08-x86-compact2.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact2-image\*
+  - 7z a -r C:\projects\compact-profiles\java-8_202_b08-x86-compact3.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact3-image\*
+  
+artifacts:
+  - path: java-8_202_b08-x32-compact1.zip
+    name: Java 8 x32 windows - compact1 - 202.b08
+  - path: java-8_202_b08-x32-compact2.zip
+    name: Java 8 x32 windows - compact2 - 202.b08
+  - path: java-8_202_b08-x32-compact3.zip
+    name: Java 8 x32 windows - compact3 - 202.b08
