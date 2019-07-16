@@ -4,8 +4,8 @@
 
 ## Download
 
-[java-8_202_b08-x86-compact1.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.202.b08/java-8_202_b08-x86-compact1.zip)
+[java-8_212_b04-x86-compact1.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.212.b04/java-8_212_b04-x86-compact1.zip)
 
-[java-8_202_b08-x86-compact2.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.202.b08/java-8_202_b08-x86-compact2.zip)
+[java-8_212_b04-x86-compact2.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.212.b04/java-8_212_b04-x86-compact2.zip)
 
-[java-8_202_b08-x86-compact3.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.202.b08/java-8_202_b08-x86-compact3.zip)
+[java-8_212_b04-x86-compact3.zip](https://github.com/webfolderio/compact-profiles-32/releases/download/8.212.b04/java-8_212_b04-x86-compact3.zip)
