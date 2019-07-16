@@ -31,16 +31,19 @@ build_script:
   - 7z x freetype_2.8.1_x86_windows_static_crt_dll.zip -ofreetype-static-crt
   - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
   - git clone https://github.com/corretto/corretto-8.git
-  - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && bash $APPVEYOR_BUILD_FOLDER/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=server --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=$APPVEYOR_BUILD_FOLDER/freetype/include --with-freetype-lib=$APPVEYOR_BUILD_FOLDER/freetype/bin --with-build-number=b08 --with-update-version=202"'
+  - cd corretto-8
+  - git checkout -t remotes/origin/release-8.212.04.2
+  - cd ..
+  - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && bash $APPVEYOR_BUILD_FOLDER/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=server --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=$APPVEYOR_BUILD_FOLDER/freetype/include --with-freetype-lib=$APPVEYOR_BUILD_FOLDER/freetype/bin --with-build-number=b04 --with-update-version=212"'
   - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && make profiles COMPRESS_JARS=true"'
-  - 7z a -r C:\projects\compact-profiles-32\java-8_202_b08-x86-compact1.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact1-image\*
-  - 7z a -r C:\projects\compact-profiles-32\java-8_202_b08-x86-compact2.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact2-image\*
-  - 7z a -r C:\projects\compact-profiles-32\java-8_202_b08-x86-compact3.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact3-image\*
+  - 7z a -r C:\projects\compact-profiles-32\java-8_212_b04-x86-compact1.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact1-image\*
+  - 7z a -r C:\projects\compact-profiles-32\java-8_212_b04-x86-compact2.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact2-image\*
+  - 7z a -r C:\projects\compact-profiles-32\java-8_212_b04-x86-compact3.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-server-release\images\j2re-compact3-image\*
   
 artifacts:
-  - path: java-8_202_b08-x86-compact1.zip
-    name: Java 8 x32 windows - compact1 - 202.b08
-  - path: java-8_202_b08-x86-compact2.zip
-    name: Java 8 x32 windows - compact2 - 202.b08
-  - path: java-8_202_b08-x86-compact3.zip
-    name: Java 8 x32 windows - compact3 - 202.b08
+  - path: java-8_212_b04-x86-compact1.zip
+    name: Java 8 x32 windows - compact1 - 212.b04
+  - path: java-8_212_b04-x86-compact2.zip
+    name: Java 8 x32 windows - compact2 - 212.b04
+  - path: java-8_212_b04-x86-compact3.zip
+    name: Java 8 x32 windows - compact3 - 212.b04
