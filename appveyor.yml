@@ -1,4 +1,4 @@
-image: Visual Studio 2015
+image: Visual Studio 2017
 
 branches:
   only:
@@ -35,7 +35,7 @@ build_script:
   - git checkout -t remotes/origin/release-8.212.04.2
   - cd ..
   - copy /Y compile.make  C:\projects\compact-profiles-32\corretto-8\src\hotspot\make\windows\makefiles\compile.make
-  - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && bash $APPVEYOR_BUILD_FOLDER/corretto-8/src/configure --with-toolchain-version=2015 --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=client --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=$APPVEYOR_BUILD_FOLDER/freetype/include --with-freetype-lib=$APPVEYOR_BUILD_FOLDER/freetype/bin --with-build-number=b04 --with-update-version=212"'
+  - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && bash $APPVEYOR_BUILD_FOLDER/corretto-8/src/configure --with-toolchain-version=2017 --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=32 --with-jvm-variants=client --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=$APPVEYOR_BUILD_FOLDER/freetype/include --with-freetype-lib=$APPVEYOR_BUILD_FOLDER/freetype/bin --with-build-number=b04 --with-update-version=212"'
   - '%CYG_ROOT%\bin\bash.exe -lc "cd $APPVEYOR_BUILD_FOLDER/corretto-8/src && make profiles COMPRESS_JARS=true"'
   - 7z a -r C:\projects\compact-profiles-32\java-8_212_b04-x86-compact1.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-client-release\images\j2re-compact1-image\*
   - 7z a -r C:\projects\compact-profiles-32\java-8_212_b04-x86-compact2.zip C:\projects\compact-profiles-32\corretto-8\src\build\windows-x86-normal-client-release\images\j2re-compact2-image\*
