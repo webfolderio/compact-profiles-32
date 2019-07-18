@@ -31,6 +31,9 @@ build_script:
   - 7z x freetype_2.8.1_x86_windows_static_crt_dll.zip -ofreetype-static-crt
   - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
   - git clone https://github.com/corretto/corretto-8.git
+  - curl https://raw.githubusercontent.com/AdoptOpenJDK/openjdk-jdk8u/master/hotspot/src/share/vm/services/threadService.hpp --output C:\projects\compact-profiles-32\corretto-8\src\hotspot\src\share\vm\services\threadService.hpp
+  - curl https://raw.githubusercontent.com/AdoptOpenJDK/openjdk-jdk8u/master/hotspot/src/share/vm/services/threadService.cpp --output C:\projects\compact-profiles-32\corretto-8\src\hotspot\src\share\vm\services\threadService.cpp
+  - curl https://raw.githubusercontent.com/AdoptOpenJDK/openjdk-jdk8u/master/hotspot/src/share/vm/runtime/thread.cpp --output C:\projects\compact-profiles-32\corretto-8\src\hotspot\src\share\vm\runtime\thread.cpp
   - cd corretto-8
   - git checkout -t remotes/origin/release-8.212.04.2
   - cd ..
