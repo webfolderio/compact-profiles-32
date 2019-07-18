@@ -1,6 +1,6 @@
 # Java 8 compact profiles for Windows (32-bit)
 
-[![AppVeyor](https://img.shields.io/appveyor/ci/WebFolder/compact-profiles-32.svg?label=Windows)](https://ci.appveyor.com/project/WebFolder/compact-profiles)
+[![AppVeyor](https://img.shields.io/appveyor/ci/WebFolder/compact-profiles-32.svg?label=Windows)](https://ci.appveyor.com/project/WebFolder/compact-profiles-32)
 
 ## Download
 
